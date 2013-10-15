@@ -125,7 +125,11 @@ namespace VacationPlaner.Web.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            
+            var disposable = _repository as IDisposable;
+            if (disposable != null)
+            {
+                disposable.Dispose();
+            }
             base.Dispose(disposing);
         }
     }

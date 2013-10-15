@@ -8,7 +8,7 @@ using VacationPlaner.DomainModel;
 
 namespace VacationPlaner.DAL.EF
 {
-    public class AddressRepository : IAddressRepository
+    public class AddressRepository : IAddressRepository, IDisposable
     {
         private VacationPlanerDbContext db = new VacationPlanerDbContext();
         public IQueryable<Address> All()
@@ -38,6 +38,11 @@ namespace VacationPlaner.DAL.EF
             Address address = db.Addresses.Find(id);
             db.Addresses.Remove(address);
             db.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            db.Dispose();
         }
     }
 }
