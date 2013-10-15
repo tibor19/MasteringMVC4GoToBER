@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.WebPages;
 
 namespace VacationPlaner.Web
 {
@@ -24,6 +25,11 @@ namespace VacationPlaner.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("ipad")
+            {
+                ContextCondition = (context) => context.GetOverriddenUserAgent().Contains("ipad")
+            });
         }
     }
 }

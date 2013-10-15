@@ -21,6 +21,11 @@ namespace VacationPlaner.Web.Controllers
             
         //}
 
+        public ActionResult MyJsonAction(int id)
+        {
+            return Json(_repository.GetById(id));
+        }
+
         public AddressController(IAddressRepository repository)
         {
             _repository = repository;

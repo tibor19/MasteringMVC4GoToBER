@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
+using Microsoft.Ajax.Utilities;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using VacationPlaner.Web.Filters;
@@ -23,6 +24,8 @@ namespace VacationPlaner.Web.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            User.IfNotNull()
+            Profile.GetPropertyValue("FirstName");
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
