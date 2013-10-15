@@ -11,16 +11,16 @@ using VacationPlaner.Web.Models.VacationPlaner;
 
 namespace VacationPlaner.Web.Controllers
 {
+    [Authorize]
     public class PersonController : Controller
     {
         private VacationPlanerDbContext db = new VacationPlanerDbContext();
 
         //
         // GET: /Person/
-
         public ActionResult Index()
         {
-            return View(db.People.ToList());
+            return View(db.People.Where(p => p.UserName == User.Identity.Name).ToList());
         }
 
         //
@@ -28,7 +28,7 @@ namespace VacationPlaner.Web.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Person person = db.People.Find(id);
+            Person person = db.People.FirstOrDefault(p => p.UserName == User.Identity.Name && p.Id == id);
             if (person == null)
             {
                 return HttpNotFound();
@@ -53,6 +53,7 @@ namespace VacationPlaner.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                person.UserName = User.Identity.Name;
                 db.People.Add(person);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -66,7 +67,7 @@ namespace VacationPlaner.Web.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Person person = db.People.Find(id);
+            Person person = db.People.FirstOrDefault(p => p.UserName == User.Identity.Name && p.Id == id);
             if (person == null)
             {
                 return HttpNotFound();
@@ -83,6 +84,7 @@ namespace VacationPlaner.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.Entry(person).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -95,7 +97,7 @@ namespace VacationPlaner.Web.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Person person = db.People.Find(id);
+            Person person = db.People.FirstOrDefault(p => p.UserName == User.Identity.Name && p.Id == id);
             if (person == null)
             {
                 return HttpNotFound();
