@@ -31,6 +31,7 @@ namespace VacationPlaner.Web.Controllers
 
         public ActionResult Index()
         {
+            // ViewData.ModelMetadata = new ModelMetadata();
             return View(_repository.All().ToList());
         }
 

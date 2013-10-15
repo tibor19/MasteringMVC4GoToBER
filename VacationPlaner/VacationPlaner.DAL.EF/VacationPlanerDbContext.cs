@@ -12,7 +12,11 @@ namespace VacationPlaner.DAL.EF
         // code to the Application_Start method in your Global.asax file.
         // Note: this will destroy and re-create your database with every model change.
         // 
-        // System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<VacationPlaner.Web.Models.VacationPlanerDbContext>());
+        static VacationPlanerDbContext()
+        {
+            System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<VacationPlanerDbContext>());
+            
+        }
 
         public VacationPlanerDbContext() : base("name=VacationPlanerDbContext")
         {
