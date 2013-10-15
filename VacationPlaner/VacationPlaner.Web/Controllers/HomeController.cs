@@ -11,8 +11,9 @@ namespace VacationPlaner.Web.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
+            //ViewData["Message"] = "Modify this template to jump-start your ASP.NET MVC application.";
+            //ViewData.Model
+            return View(model: "Model data!");
         }
 
         public ActionResult About()

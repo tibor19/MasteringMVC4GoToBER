@@ -184,6 +184,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -304,6 +305,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\About2.cshtml" />
+    <Content Include="Views\Address\Index.cshtml" />
+    <Content Include="Views\Address\Details.cshtml" />
+    <Content Include="Views\Address\Create.cshtml" />
+    <Content Include="Views\Address\Edit.cshtml" />
+    <Content Include="Views\Address\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -312,6 +318,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VacationPlaner.DAL.EF\VacationPlaner.DAL.EF.csproj">
+      <Project>{E65E2534-378C-489A-A64B-3DFCD9A4600B}</Project>
+      <Name>VacationPlaner.DAL.EF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VacationPlaner.DomainModel\VacationPlaner.DomainModel.csproj">
       <Project>{2ae0f161-e50b-413f-a560-1710e160e201}</Project>
       <Name>VacationPlaner.DomainModel</Name>
