@@ -186,6 +186,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\VacationController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -193,6 +195,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AddressMetadata.cs" />
     <Compile Include="Models\PersonMetadata.cs" />
+    <Compile Include="Models\VacationPlaner\WebContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -312,6 +315,19 @@
     <Content Include="Views\Address\Create.cshtml" />
     <Content Include="Views\Address\Edit.cshtml" />
     <Content Include="Views\Address\Delete.cshtml" />
+    <Content Include="Views\Address\_EditAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Address.cshtml" />
+    <Content Include="Views\Vacation\Index.cshtml" />
+    <Content Include="Views\Vacation\Details.cshtml" />
+    <Content Include="Views\Vacation\Create.cshtml" />
+    <Content Include="Views\Vacation\Edit.cshtml" />
+    <Content Include="Views\Vacation\Delete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Address.cshtml" />
+    <Content Include="Views\Person\Index.cshtml" />
+    <Content Include="Views\Person\Details.cshtml" />
+    <Content Include="Views\Person\Edit.cshtml" />
+    <Content Include="Views\Person\Delete.cshtml" />
+    <Content Include="Views\Person\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

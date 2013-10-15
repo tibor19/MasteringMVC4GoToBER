@@ -11,8 +11,9 @@ namespace VacationPlaner.DomainModel
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You need to supply a value for {0}")]
         [Display(Name = "Street name")]
+        [DataType(DataType.MultilineText)]
         public string Street { get; set; }
         [Required]
         public string City { get; set; }

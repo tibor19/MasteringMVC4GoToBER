@@ -9,40 +9,7 @@
 <fieldset>
     <legend>Address</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Street)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Street)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.City)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.City)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Zip)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Zip)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.County)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.County)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Country)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Country)
-    </div>
+    @Html.DisplayForModel()
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |

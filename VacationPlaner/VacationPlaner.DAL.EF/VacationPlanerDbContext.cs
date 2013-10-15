@@ -12,10 +12,30 @@ namespace VacationPlaner.DAL.EF
         // code to the Application_Start method in your Global.asax file.
         // Note: this will destroy and re-create your database with every model change.
         // 
+
+        private class VacationPlanerInitializer :
+            System.Data.Entity.DropCreateDatabaseIfModelChanges<VacationPlanerDbContext>
+        {
+            protected override void Seed(VacationPlanerDbContext context)
+            {
+                //base.Seed(context);
+                context.Addresses.Add(new Address()
+                {
+                    City = "Cluj",
+                    Country = "Romania",
+                    Street = "My Street",
+                    Zip = "12345"
+                });
+
+                context.SaveChanges();
+            }
+        }
+
         static VacationPlanerDbContext()
         {
-            System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<VacationPlanerDbContext>());
-            
+#if DEBUG
+            System.Data.Entity.Database.SetInitializer(new VacationPlanerInitializer());
+#endif
         }
 
         public VacationPlanerDbContext() : base("name=VacationPlanerDbContext")
@@ -24,6 +44,6 @@ namespace VacationPlaner.DAL.EF
 
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Vacation> Vacations { get; set; }
-        public DbSet<Person> Persons { get; set; }
+        public DbSet<Person> People { get; set; }
     }
 }
