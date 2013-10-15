@@ -16,10 +16,10 @@ namespace VacationPlaner.Web.Controllers
 
         private readonly IAddressRepository _repository;
 
-        public AddressController() : this(new AddressRepository())
-        {
+        //public AddressController() : this(new AddressRepository())
+        //{
             
-        }
+        //}
 
         public AddressController(IAddressRepository repository)
         {
